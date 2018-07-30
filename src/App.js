@@ -19,6 +19,7 @@ const App = () => (
           <img src={logo} className="App-logo" alt="logo" />
         </Link>
         <h1 className="App-title">Welcome to Mull Movies</h1>
+        <p>Top Rated Movies</p>
       </header>
       <Switch>
         <Route exact path="/" component={MoviesList} />
