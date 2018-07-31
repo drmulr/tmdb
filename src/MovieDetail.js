@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import Overdrive from 'react-overdrive';
 import styled from 'styled-components';
 import { Poster } from './Movie';
+
 const POSTER_PATH = 'http://image.tmdb.org/t/p/w154';
 const BACKDROP_PATH = 'http://image.tmdb.org/t/p/w1280';
 
@@ -12,6 +14,7 @@ class MovieDetail extends Component {
 
   async componentDidMount() {
     try {
+      //It's a free API - just get your own access :)  
       const res = await fetch(`https://api.themoviedb.org/3/movie/${this.props.match.params.id}?api_key=dedc57357ee4715c48f64dd5ca30c8f6&language=en-US`);
       const movie = await res.json();
       this.setState({
@@ -29,7 +32,9 @@ class MovieDetail extends Component {
     return (
         <MovieWrapper backdrop={`${BACKDROP_PATH}${movie.backdrop_path}`}>
             <MovieInfo>
-                <Poster src={`${POSTER_PATH}${movie.poster_path}`} alt={movie.title} />
+                <Overdrive id={movie.id}>
+                    <Poster src={`${POSTER_PATH}${movie.poster_path}`} alt={movie.title} />
+                </Overdrive>
                 <div>
                     <h1>{movie.title}</h1>
                     <h3>{movie.release_date}</h3>

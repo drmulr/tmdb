@@ -10,12 +10,12 @@ class MoviesList extends Component {
 
   async componentDidMount() {
     try {
+      //Again, it's a free API, just get your own access.
       const res = await fetch('https://api.themoviedb.org/3/discover/movie?api_key=dedc57357ee4715c48f64dd5ca30c8f6&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1')
       const movies = await res.json();
       this.setState({
         movies: movies.results
       })
-
     } catch(e) {
       console.log(e);
     }
@@ -35,6 +35,6 @@ export default MoviesList;
 const MovieGrid = styled.div`
   display: grid;
   padding: 1rem;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   grid-row-gap: 1rem;
 `;

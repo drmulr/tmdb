@@ -30,7 +30,3 @@ const App = () => (
 )
 
 export default App;
-
-const Test = ({ match }) => (
-  <h1>{match.params.id}</h1>
-)

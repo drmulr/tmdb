@@ -1,4 +1,5 @@
 import React from 'react';
+import Overdrive from 'react-overdrive';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
@@ -7,7 +8,9 @@ const POSTER_PATH = 'http://image.tmdb.org/t/p/w154';
 
 const Movie = props => (
     <Link to={`/${props.movie.id}`}>
-        <Poster src={`${POSTER_PATH}${props.movie.poster_path}`} alt={props.movie.title} />
+        <Overdrive id={props.movie.id}>
+            <Poster src={`${POSTER_PATH}${props.movie.poster_path}`} alt={props.movie.title} />
+        </Overdrive>
     </Link> 
 );
 
